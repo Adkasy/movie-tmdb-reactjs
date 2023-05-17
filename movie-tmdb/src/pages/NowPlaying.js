@@ -62,7 +62,7 @@ const NowPlaying = () => {
 								alt={movie.title}
 								className="h-96 rounded-lg border-neutral-800 border-4 hover:border-danger hover:border-2"
 							/>
-							<p className="text-base font-semibold font-primary mt-2 mb-4 text-center text-red-600 ">
+							<p className="text-base font-semibold font-primary mt-2 mb-4 text-center -ml-7 text-red-600">
 								{movie.title}
 							</p>
 						</Link>
