@@ -1,5 +1,6 @@
 import React from "react"
 import { useState, useEffect } from "react"
+import "./TopRated.css"
 
 const TopRated = () => {
 	const [topRated, setTopRated] = useState([])
@@ -16,24 +17,26 @@ const TopRated = () => {
 
 	return (
 		<>
-			{topRated.map((movie) => {
-				return (
-					<a
-						key={movie.id}
-						className="inline-block mx-[5px] hover:cursor-pointer hover:scale-95 duration-700"
-					>
-						<img
-							src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-							alt={movie.title}
-							className="h-96"
-						/>
+			<div className="container-toprated">
+				{topRated.map((movie) => {
+					return (
+						<a
+							key={movie.id}
+							className="inline-block mx-[5px] hover:cursor-pointer hover:scale-95 duration-700"
+						>
+							<img
+								src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+								alt={movie.title}
+								className="h-96 rounded-lg border-neutral-800 border-4 hover:border-danger hover:border-2"
+							/>
 
-						<p className="text-xs font-primary mt-2 mb-4 text-center text-white">
-							{movie.title}
-						</p>
-					</a>
-				)
-			})}
+							<p className="text-base font-semibold font-primary mt-2 mb-4 text-center text-red-600 ">
+								{movie.title}
+							</p>
+						</a>
+					)
+				})}
+			</div>
 		</>
 	)
 }

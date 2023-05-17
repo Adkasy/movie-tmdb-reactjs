@@ -1,20 +1,21 @@
 import React from "react"
+import { Link } from "react-router-dom"
 
 const Navbar = () => {
 	return (
 		<div className="bg-primary text-white font-primary h-14 sticky top-0 z-50">
 			<ul className="h-full flex items-center mx-10 text-lg justify-center">
 				<li className="hover:text-red-500 mr-8 hover:cursor-pointer hover:scale-105 duration-150">
-					Home
+					<Link to="/">Home</Link>
 				</li>
 				<li className="hover:text-red-500 mr-8 hover:cursor-pointer hover:scale-105 duration-150">
-					Now Playing
+					<Link to="/now-playing">Now Playing</Link>
 				</li>
 				<li className="hover:text-red-500 mr-8 hover:cursor-pointer hover:scale-105 duration-150">
-					Up Coming
+					<Link to="/up-coming">Up Coming</Link>
 				</li>
 				<li className="hover:text-red-500 mr-8 hover:cursor-pointer hover:scale-105 duration-150">
-					Top Rated
+					<Link to="/top-rated">Top Rated</Link>
 				</li>
 			</ul>
 		</div>

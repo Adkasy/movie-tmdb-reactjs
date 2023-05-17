@@ -1,0 +1,13 @@
+.container-nowplaying {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+	grid-template-rows: repeat(2, 100px);
+	grid-gap: 10px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.container-nowplaying a {
+	grid-column: span 2;
+	grid-row: span 3;
+}
