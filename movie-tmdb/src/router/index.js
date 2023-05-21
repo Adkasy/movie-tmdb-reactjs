@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom"
 import App from "../App"
 import Layout from "../pages/Layout"
 import MovieDetail from "../pages/MovieDetail"
+import SimilarMovie from "../pages/SimilarMovie"
 
 const router = createBrowserRouter([
 	{
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
 			},
 			{
 				path: "/detail/:movieID",
+				element: <MovieDetail />,
+			},
+			{
+				path: "/similar/:movieID",
 				element: <MovieDetail />,
 			},
 		],

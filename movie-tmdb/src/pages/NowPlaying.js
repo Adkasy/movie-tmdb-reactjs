@@ -2,10 +2,16 @@ import React from "react"
 import { useState, useEffect } from "react"
 import "./NowPlaying.css"
 import { Link, useParams } from "react-router-dom"
+import { useDispatch, useSelector } from "react-redux"
 // import axios from "axios"
 
 const NowPlaying = () => {
-	const [nowPlaying, setNowPlaying] = useState([])
+	// const [nowPlaying, setNowPlaying] = useState([])
+	const { nowPlaying } = useSelector((state) => state)
+	const dispatch = useDispatch()
+	const fetchNowPlaying = (payload) => {
+		return { type: "fetch/nowPlaying", payload: payload }
+	}
 
 	useEffect(() => {
 		fetch(
@@ -24,7 +30,10 @@ const NowPlaying = () => {
 			.then((data) => {
 				// console.log(data, "<-- Ini data masih dalam bentuk mentah")
 				// console.log(data.results, "<--- Ini hasil jadinya")
-				setNowPlaying(data.results)
+				// setNowPlaying(data.results)
+				data.results.map((perData) => {
+					dispatch(fetchNowPlaying(perData))
+				})
 			})
 
 			.catch((error) => {

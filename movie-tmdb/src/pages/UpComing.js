@@ -2,24 +2,34 @@ import React from "react"
 import { useState, useEffect } from "react"
 import "./UpComing.css"
 import { Link } from "react-router-dom"
+import { useDispatch, useSelector } from "react-redux"
 
 const UpComing = () => {
-	const [upcoming, setUpcoming] = useState([])
+	// const [upComing, setUpComing] = useState([])
+	const { upComing } = useSelector((state) => state)
+	const dispatch = useDispatch()
+	const fetchUpComing = (payload) => {
+		return { type: "fetch/upComing", payload: payload }
+	}
+
 	useEffect(() => {
 		fetch(
 			"https://api.themoviedb.org/3/movie/upcoming?api_key=b219cb5c365b97f33e29ec55c592ee3e&language=en-US&page=1"
 		)
 			.then((response) => response.json())
 			.then((data) => {
-				console.log(data.results)
-				setUpcoming(data.results)
+				// console.log(data.results)
+				// setUpComing(data.results)
+				data.results.map((perData) => {
+					dispatch(fetchUpComing(perData))
+				})
 			})
 	}, [])
 
 	return (
 		<>
 			<div className="container-upcoming">
-				{upcoming.map((movie) => {
+				{upComing.map((movie) => {
 					return (
 						<Link
 							key={movie.id}
